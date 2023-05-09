@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+ - youtube
+{% endblock %}
+
+{% block content %}
+    <br><br>
+    <h1>Youtube Embedded</h1>
+    <div class="embed-responsive embed-responsive-16by9">
+    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YhqGhTzFYHw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+{#        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/CLBzw8toTRo" allowfullscreen></iframe>#}
+    </div>
+    <iframe width="560"
+            height="315"
+            src="https://www.youtube-nocookie.com/embed/ztoP9f_Mweo"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+    </iframe>
+{% endblock %}
