@@ -8,6 +8,50 @@
 
 {% block content %}
     <div align="center">
-    <img src="{% static 'images/pf_sense_0.png' %}" alt="pfsense_0.png">
+        <h5 align="center">First Login</h5>
+        <p align="center">Once Installed navigate to the IP address you assigned for your LAN port during install</p>
+            <p>You will be greeted with the following screen</p>
+        <img src="{% static 'images/pfsense/pf_sense_0.png' %}" alt="pfsense_0.png">
+
+        <br><br>
+
+        <h5>Changing the Theme</h5>
+        <p>The first thing I am going to do is change the theme because I don't like the bright white background that it defaults to</p>
+        <p>At the top, find the System Dropdown and navigate from System -> General Setup -> Theme</p>
+        <p>Under webConfigurator find the Theme Dropdown and change the theme to pfSense - Dark</p>
+        <p>After this change the home screen will look like this</p>
+        <img src="{% static 'images/pfsense/pf_sense_1.png' %}" alt="pfsense_1.png">
+
+        <br> <br>
+
+        <h5>Changing the default password for system created user, admin</h5>
+        <p>Notice in the above image the WARNING at the top of the page. We need to Change the default password for the user, admin, next</p>
+        <p>The user, admin, was created during installation. In addition to changing the password I am going to create a new admin user</p>
+        <p>Choose a strong password using a generator, I Use Bitwarden, but there are other options out there.</p>
+        <p>After Entering password you need to make sure that you are a member of the admins group. Under Group Membership, Select admins, and then click the >> Move to 'Member of' list</p>
+        <p>See the screenshot below, when you have selected the new user and entered a complex password click the save button at the bottom</p>
+        <img src="{% static 'images/pfsense/pf_sense_2.png' %}" alt="pfsense_2.png">
+
+        <br><br>
+
+        <p>After you click the save button you will be redirected to the url below, which can be found at System -> User Manager -> Users</p>
+        <img src="{% static 'images/pfsense/pf_sense_3.png' %}" alt="pfsense_3.png">
+
+        <br><br>
+
+        <h5>Disable login for system created user, admin</h5>
+        <p>The next thing I am going to do is disable GUI login for the admin user for a little added security. We changed to a strong password,
+        but it would be much better if removed a known variable, the "admin" username, from the list of possible attack vectors</p>
+        <p>NOTE 1: logout and then login with the new user you just created before making the following change to the 'admin' account</p>
+        <p>NOTE 2: This step can only be completed if you have added your new user to the 'admins' group</p>
+        <p>Again this step is optional but if you want to do this click on the pencil/edit icon to the right of the list of users on the
+        System -> User Manager -> Users page. And then check the radio button that says "This user cannot login", and then click the
+        save button at the bottom</p>
+        <img src="{% static 'images/pfsense/pf_sense_4.png' %}" alt="pfsense_4.png">
+
+        <br><br>
+
+        <p>After completing the steps above you will be redirected to the following page, Note the change in the Status column of the admin user</p>
+        <img src="{% static 'images/pfsense/pf_sense_5.png' %}" alt="pfsense_5.png">
     </div>
 {% endblock content %}
