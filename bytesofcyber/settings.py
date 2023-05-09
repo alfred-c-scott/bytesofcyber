@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     # local
     'portfolio.apps.PortfolioConfig',
+    'pfsense.apps.PfsenseConfig',
 ]
 
 MIDDLEWARE = [
