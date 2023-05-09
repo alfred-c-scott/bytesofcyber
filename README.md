@@ -1,7 +1,3 @@
----
-description: cybersecurity portfolio
----
-
 # bytesofcyber
 
-run ^/blah blah blah
+What the hell am I doing
