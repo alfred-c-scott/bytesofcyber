@@ -7,51 +7,122 @@
 {% endblock title %}
 
 {% block content %}
+
+{#    <div class="container">#}
+{#    <div class="row justify-content-center">#}
+{#        <div class="col-8"> <!-- adjust column width as per your requirement -->#}
+{#            <h1 class="text-start">My Heading</h1>#}
+{#            <p class="text-start">Some text content here...</p>#}
+{#            <img src="{% static 'images/pfsense/pf_sense_new_user.png' %}" class="img-fluid" alt="Responsive image">#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#    <div class="container">#}
+{#    <div class="row justify-content-center">#}
+{#        <div class="col-8">#}
+{#            <h1 class="text-start">My Heading</h1>#}
+{#            <p class="text-start">Some text content here...</p>#}
+{#            <!-- Image that opens the modal -->#}
+{#            <img src="{% static 'images/pfsense/pf_sense_new_user.png' %}" class="img-fluid" alt="Responsive image" data-bs-toggle="modal" data-bs-target="#myModal">#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<!-- The Modal -->#}
+{#<div class="modal fade" id="myModal">#}
+{#    <div class="modal-dialog modal-dialog-centered modal-lg">#}
+{#        <div class="modal-content">#}
+{#            <!-- Modal body -->#}
+{#            <div class="modal-body">#}
+{#                <img src="{% static 'images/pfsense/pf_sense_new_user.png' %}" class="img-fluid" alt="Responsive image">#}
+{#            </div>#}
+{#            <!-- Modal footer -->#}
+{#            <div class="modal-footer">#}
+{#                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+
     <div align="center">
+
         <h5 align="center">First Login</h5>
+        <br>
         <p align="center">Once Installed navigate to the IP address you assigned for your LAN port during install</p>
-            <p>You will be greeted with the following screen</p>
-        <img src="{% static 'images/pfsense/pf_sense_0.png' %}" alt="pfsense_0.png">
+        <p>You will be greeted with the following screen</p>
+        <img src="{% static 'images/pfsense/pfsense_login.png' %}" alt="pfsense_login.png">
+
+        <br><br>
+
+        <p>The default username and password are, username=admin, and password=pfsense.</p>
+        <p>Go ahead and login with these default credentials now</p>
+        <p>The first time you sign in you will be greeted with a pfsense setup screen</p>
+        <img src="{% static 'images/pfsense/pf_sense_setup.png' %}" alt="pfsense_0.png">
+
+        <br><br>
+
+        <p>I am going to skip this for now to change the theme because I hate the bright background but will come back
+        to this shortly</p>
+        <p>Click the pfsense logo at the top left to navigate to the homepage and the following page will load</p>
+        <img src="{% static 'images/pfsense/pf_sense_light.png' %}" alt="pfsense_light.png">
 
         <br><br>
 
         <h5>Changing the Theme</h5>
+        <br>
         <p>The first thing I am going to do is change the theme because I don't like the bright white background that it defaults to</p>
         <p>At the top, find the System Dropdown and navigate from System -> General Setup -> Theme</p>
         <p>Under webConfigurator find the Theme Dropdown and change the theme to pfSense - Dark</p>
-        <p>After this change the home screen will look like this</p>
-        <img src="{% static 'images/pfsense/pf_sense_1.png' %}" alt="pfsense_1.png">
+        <p>Once you have done this, click save at the bottom, and then click the pf_sense logo at the top left to navigate to the main page</p>
+        <p>After changing the theme the home screen will look like this</p>
+        <img src="{% static 'images/pfsense/pf_sense_dark.png' %}" alt="pfsense_dark.png">
 
         <br> <br>
 
+        <h4>Creating a new user with admin privileges</h4>
+        <br>
+        <p>Using the navigation bar at the top click System -> User Manager, and the following page will load</p>
+        <img src="{% static 'images/pfsense/pf_sense_user_manger_0.png' %}" alt="pfsense_user_manager_0.png">
+
+        <br><br>
+
+        <p>Click the Add button on the bottom right to add a new user. Feel free to use whatever username you like, but
+        for simplicity I am going to enter new_user into the Username field</p>
+        <p>Pick a strong password, preferably with a password generator but again this is up to your discretion</p>
+        <p>This is the page where you will want to go ahead and add this new user to the admin group so that you can
+        make changes to the router and firewall settings. Once added to this group your new user will have the same
+        privileges once logged in, that the system created user 'admin' has</p>
+        <p>NOTE: While logged in via the GUI the user created account will have the same privileges. However, when logged
+        in via SSH you will only have access to the shell, not the menu. For this reason it is not recommended that you
+        disable login access for the admin user in later steps</p>
+        <p>In the Group membership section select admins from the field on the left, and then click the button below it
+        to add new_user to the admins group</p>
+        <p>optionally, you can add your public ssh keys here if you wish to SSH into the router remotely. I am doing this,
+        but you don't have to</p>
+        <p>see the screenshot below</p>
+        <img src="{% static 'images/pfsense/pf_sense_new_user.png' %}" alt="pfsense_new_user.png">
+
+        <br><br>
+
+        <p>Once you are done filling this page out click save at the bottom, and you will be redirected to the main User Manager page</p>
+        <p>It should look lik the image below</p>
+        <img src="{% static 'images/pfsense/pf_sense_user_page.png' %}" alt="pf_sense_user_page.png">
+
+        <br><br>
+
         <h5>Changing the default password for system created user, admin</h5>
-        <p>Notice in the above image the WARNING at the top of the page. We need to Change the default password for the user, admin, next</p>
-        <p>The user, admin, was created during installation. In addition to changing the password I am going to create a new admin user</p>
-        <p>Choose a strong password using a generator, I Use Bitwarden, but there are other options out there.</p>
-        <p>After Entering password you need to make sure that you are a member of the admins group. Under Group Membership, Select admins, and then click the >> Move to 'Member of' list</p>
-        <p>See the screenshot below, when you have selected the new user and entered a complex password click the save button at the bottom</p>
-        <img src="{% static 'images/pfsense/pf_sense_2.png' %}" alt="pfsense_2.png">
+        <br>
+        <p>Now that we have created a new admin user let's go ahead and change the password for the system created user named
+        'admin'</p>
+        <p>Click on the pencil icon on the right side of the screen for the admin user and the following page will load</p>
+        <img src="{% static 'images/pfsense/pf_sense_edit_admin.png' %}" alt="pf_sense_edit_admin.png">
 
         <br><br>
 
-        <p>After you click the save button you will be redirected to the url below, which can be found at System -> User Manager -> Users</p>
-        <img src="{% static 'images/pfsense/pf_sense_3.png' %}" alt="pfsense_3.png">
-
-        <br><br>
-
-        <h5>Disable login for system created user, admin</h5>
-        <p>The next thing I am going to do is disable GUI login for the admin user for a little added security. We changed to a strong password,
-        but it would be much better if removed a known variable, the "admin" username, from the list of possible attack vectors</p>
-        <p>NOTE 1: logout and then login with the new user you just created before making the following change to the 'admin' account</p>
-        <p>NOTE 2: This step can only be completed if you have added your new user to the 'admins' group</p>
-        <p>Again this step is optional but if you want to do this click on the pencil/edit icon to the right of the list of users on the
-        System -> User Manager -> Users page. And then check the radio button that says "This user cannot login", and then click the
-        save button at the bottom</p>
-        <img src="{% static 'images/pfsense/pf_sense_4.png' %}" alt="pfsense_4.png">
-
-        <br><br>
-
-        <p>After completing the steps above you will be redirected to the following page, Note the change in the Status column of the admin user</p>
-        <img src="{% static 'images/pfsense/pf_sense_5.png' %}" alt="pfsense_5.png">
+        <p>Choose a complex password created by a generator, and click save at the bottom of the page</p>
+        <p>HINT: Now would be a good time to paste in your public SSH key, so you can login and access menu/shell if
+        needed. This is a lot more convenient than having to plug in a monitor to the machine, so if you have a public
+        key on a local machine that you use frequently go ahead and enter it into the Authorized SSH Keys field at the
+        bottom</p>
     </div>
 {% endblock content %}
