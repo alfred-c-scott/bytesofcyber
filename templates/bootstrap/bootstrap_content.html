@@ -1,0 +1,29 @@
+{% extends 'bootstrap_base.html' %}
+{% load static %}
+
+{% block title %}
+     - content
+{% endblock title %}
+
+{% block body %}
+{#    <div class="container">#}
+{#    <div class="row justify-content-center">#}
+{#        <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-8">#}
+{#            <p class="text-start">#}
+{#                Your text goes here. It will be justified to the left.#}
+{#            </p>#}
+{#            <img src="{% static 'images/pfsense/pf_sense_dark.png' %}" class="img-fluid" alt="Responsive image">#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+    <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+            <p class="text-start">
+                Your text goes here. It will be justified to the left.
+            </p>
+            <img src="{% static 'images/pfsense/pf_sense_dark.png' %}" class="img-fluid" alt="Responsive image">
+        </div>
+    </div>
+</div>
+{% endblock body %}

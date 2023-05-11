@@ -1,0 +1,39 @@
+.container {
+    height: 100vh;
+    align-items: flex-start;
+}
+
+.content {
+    max-width: 90%; /* Adjust to a percentage value for better responsiveness */
+}
+
+/* Adjust max-width based on the screen size */
+@media (min-width: 576px) { /* Small devices (landscape phones, 576px and up) */
+    .content {
+        max-width: 95%;
+    }
+}
+
+@media (min-width: 768px) { /* Medium devices (tablets, 768px and up) */
+    .content {
+        max-width: 70%;
+    }
+}
+
+@media (min-width: 992px) { /* Large devices (desktops, 992px and up) */
+    .content {
+        max-width: 60%;
+    }
+}
+
+@media (min-width: 1200px) { /* Extra large devices (large desktops, 1200px and up) */
+    .content {
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 1920px) { /* 4K and large screens */
+    .content {
+        max-width: 30%;
+    }
+}
